@@ -474,23 +474,25 @@ function get_armbian_model() {
     case "$BOARDFAMILY" in
         "rockchip64")
             __platform="rockchip64"
+            get_graphics_platform
+            get_opengl_target_platform
             ;;
         "sun50iw6")
             __platform="sun50iw6"
+            get_graphics_platform
+            get_opengl_target_platform
             ;;
         "sun50iw9")
             __platform="sun50iw9"
+            get_graphics_platform
+            get_opengl_target_platform
             ;;
         "sun8i")
             __platform="sun8i"
+            get_graphics_platform
+            get_opengl_target_platform
             ;;
     esac
-
-    # if we have a function for the platform, call it, otherwise use the default "native" one.
-    if fnExists "platform_${__platform}"; then
-        get_graphics_platform
-        get_opengl_target_platform
-    fi
 }
 
 function get_platform() {
