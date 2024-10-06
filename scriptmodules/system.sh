@@ -773,7 +773,7 @@ function platform_rk3588() {
 function platform_rockchip64() {
     cpu_armv8 "cortex-a72.cortex-a53"
     get_graphics_platform
-    get_opengl_target_platform
+    __platform_flags+=(gles gles2 gles3 gles32)
 }
 
 function platform_sun50iw6() {
