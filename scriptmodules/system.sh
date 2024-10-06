@@ -474,23 +474,15 @@ function get_armbian_model() {
     case "$BOARDFAMILY" in
         "rockchip64")
             __platform="rockchip64"
-            get_graphics_platform
-            get_opengl_target_platform
             ;;
         "sun50iw6")
             __platform="sun50iw6"
-            get_graphics_platform
-            get_opengl_target_platform
             ;;
         "sun50iw9")
             __platform="sun50iw9"
-            get_graphics_platform
-            get_opengl_target_platform
             ;;
         "sun8i")
             __platform="sun8i"
-            get_graphics_platform
-            get_opengl_target_platform
             ;;
     esac
 }
@@ -780,18 +772,26 @@ function platform_rk3588() {
 
 function platform_rockchip64() {
     cpu_armv8 "cortex-a72.cortex-a53"
+    get_graphics_platform
+    get_opengl_target_platform
 }
 
 function platform_sun50iw6() {
     cpu_armv8 "cortex-a53"
+    get_graphics_platform
+    get_opengl_target_platform
 }
 
 function platform_sun50iw9() {
     cpu_armv8 "cortex-a53"
+    get_graphics_platform
+    get_opengl_target_platform
 }
 
 function platform_sun8i() {
     cpu_armv7 "cortex-a7"
+    get_graphics_platform
+    get_opengl_target_platform
 }
 
 function platform_vero4k() {
