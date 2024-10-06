@@ -434,8 +434,6 @@ function get_platform() {
     local architecture="$(uname --machine)"
     if [[ -z "$__platform" ]]; then
         if [[ -f /etc/armbian-release ]]; then
-            iniConfig " = " '"' "$configdir/all/retropie.cfg"
-            iniSet "own_sdl2" "0"
             get_armbian_model
         else
             case "$(sed -n '/^Hardware/s/^.*: \(.*\)/\1/p' < /proc/cpuinfo)" in
