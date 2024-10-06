@@ -167,7 +167,10 @@ function build_emulationstation() {
         # force GLESv1 on videocore due to performance issue with GLESv2
         isPlatform "videocore" && params+=(-DUSE_GLES1=On)
     elif isPlatform "x11"; then
-        if isPlatform "gles"; then
+        if isPLatform "armbian"; then
+            params+=(-DGL=On)
+            params+=(-DUSE_GL21=On)
+        elif isPlatform "gles"; then
             params+=(-DGLES=On)
             local gles_ver=$(sudo -u $__user glxinfo -B | grep -oP 'Max GLES[23] profile version:\s\K.*')
             compareVersions $gles_ver lt 2.0  && params+=(-DUSE_GLES1=On)
