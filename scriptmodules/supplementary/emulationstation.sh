@@ -167,7 +167,7 @@ function build_emulationstation() {
         # force GLESv1 on videocore due to performance issue with GLESv2
         isPlatform "videocore" && params+=(-DUSE_GLES1=On)
     elif isPlatform "x11"; then
-        if isPLatform "armbian"; then
+        if isPlatform "armbian"; then
             params+=(-DGL=On)
             params+=(-DUSE_GL21=On)
         elif isPlatform "gles"; then
